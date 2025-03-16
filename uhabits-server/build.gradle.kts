@@ -52,6 +52,12 @@ dependencies {
     testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
     testImplementation(kotlin("test"))
     testImplementation(kotlin("test-junit"))
+
+    testImplementation("io.mockk:mockk:1.12.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.7.2")
+    testImplementation("androidx.room:room-testing:2.4.0")
+    testImplementation("io.qameta.allure:allure-junit5:2.16.1")
 }
 
 tasks.withType<ShadowJar> {
