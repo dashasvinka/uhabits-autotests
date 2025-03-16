@@ -20,6 +20,8 @@
 plugins {
     kotlin("multiplatform")
     id("org.jlleitschuh.gradle.ktlint")
+
+    id("io.qameta.allure") version "2.11.2"
 }
 
 kotlin {
@@ -64,9 +66,20 @@ kotlin {
                 implementation("org.apache.commons:commons-io:1.3.2")
                 implementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
                 implementation("org.junit.jupiter:junit-jupiter:5.10.1")
+
+                implementation("com.squareup.okhttp3:mockwebserver:4.9.3")
+                implementation("com.squareup.okhttp3:okhttp:4.9.3")
+
+                implementation("io.qameta.allure:allure-kotlin-model:2.4.0")
+                implementation("io.qameta.allure:allure-kotlin-commons:2.4.0")
+                implementation("io.qameta.allure:allure-junit4:2.20.1")
             }
         }
     }
+}
+
+allure {
+    version.set("2.20.1")
 }
 
 tasks.named<org.gradle.language.jvm.tasks.ProcessResources>("jvmProcessResources") {
