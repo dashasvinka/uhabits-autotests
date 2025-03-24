@@ -16,25 +16,33 @@ class ManuItemsTest: BaseUserInterfaceTest() {
 
     @Test
     @Throws(Exception::class)
-    fun testActionCreateHabitIsDisplayed() {
+    fun testActionCreateHabitIsDisplayedAndEnabled() {
         launchApp()
         Espresso.onView(ViewMatchers.withId(R.id.actionCreateHabit))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.actionCreateHabit))
+            .perform(ViewActions.click())
     }
 
     @Test
     @Throws(Exception::class)
-    fun testActionFilterIsDisplayed() {
+    fun testActionFilterIsDisplayedAndEnabled() {
         launchApp()
         Espresso.onView(ViewMatchers.withId(R.id.action_filter))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.action_filter))
+            .perform(ViewActions.click())
     }
 
     @Test
     @Throws(Exception::class)
-    fun testFilterItemsIsDisplayed() {
+    fun testGoToScreenAddHabit() {
         launchApp()
-        Espresso.onView(ViewMatchers.withId(R.id.action_filter))
+        Espresso.onView(ViewMatchers.withId(R.id.actionCreateHabit))
             .perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withText("Да или Нет"))
+            .perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withText("Добавить привычку"))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }
